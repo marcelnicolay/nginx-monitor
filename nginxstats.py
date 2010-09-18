@@ -1,4 +1,4 @@
-import os, sys, atexit, getopt
+from rrdcontroller import RRDController
 import re
 import sys
 import time
@@ -13,6 +13,10 @@ class NginxStats():
         self.count = 0
         
         self.TIME_SLEEP = time
+        
+        self.rrd = RRDController()
+        #self.rrd.delete()
+        self.rrd.create()
     
     def parse(self, content):
         result = {}
@@ -35,7 +39,7 @@ class NginxStats():
 
         return result
         
-    def get_stats(self):
+    def update_stats(self):
 
         stats = {'connections':0, 'accepted':0, 'requests':0, 'reading':0, 'writing':0, 'waiting':0}
         for server in self.servers:
@@ -44,35 +48,17 @@ class NginxStats():
             result = self.parse(content)
             for k,v in result.iteritems(): stats[k] += v
         
-        return stats
+        self.rrd.update(connections=stats['connections'], 
+                        requests=stats['requests'], 
+                        reading=stats['reading'],
+                        writing=stats['writing'],
+                        waiting=stats['waiting'])
     
+    def create_graph(self):
+        self.rrd.graph()
+        
     def loop(self):
-        self.print_header()
-        self.prev = self.get_stats()
         time.sleep(self.TIME_SLEEP)
-        try:
-            while True:
-                nginx_stats = self.get_stats()
-                self.print_stats(nginx_stats)
-                self.prev = nginx_stats
-                for k,v in self.total.iteritems(): self.total[k] += nginx_stats[k]
-                self.count += 1
-                time.sleep(self.TIME_SLEEP)
-        except KeyboardInterrupt:
-            self.print_footer()
-
-    def print_stats(self, stats):
-        print '%8d %10.2f %10.2f %5d %5d %5d' % (stats['connections'],
-                                                float(stats['accepted'] - self.prev['accepted']) / self.TIME_SLEEP,
-                                                float(stats['requests'] - self.prev['requests']) / self.TIME_SLEEP,
-                                                stats['reading'],
-                                                stats['writing'],
-                                                stats['waiting'])
-
-    def print_footer(self):
-        print '-------- ---------- ---------- ----- ----- -----'
-        print '%8d %10.2f %10.2f %5d %5d %5d' % tuple([v / self.count for k,v in self.total.iteritems()])
-    
-    def print_header(self):
-        print '%-8s %-10s %-10s %-5s %-5s %-5s' % ('Conn', 'Conn/s', 'Request/s', 'Read', 'Write', 'Wait')
-        print '-------- ---------- ---------- ----- ----- -----'
+        while True:
+            self.update_stats()
+            time.sleep(self.TIME_SLEEP)
