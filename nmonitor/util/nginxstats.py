@@ -5,9 +5,9 @@ import time
 import urllib
 
 class NginxStats():
-    
-    def __init__(self, servers, time):
-        self.servers = servers
+        
+    def __init__(self):
+        #self.servers = servers
         self.prev = {'accepted':0, 'requests':0}
         self.total = {'connections':0, 'accepted':0, 'requests':0, 'reading':0, 'writing':0, 'waiting':0}
         self.count = 0
@@ -39,7 +39,7 @@ class NginxStats():
 
         return result
         
-    def update_stats(self):
+    def update(self):
 
         stats = {'connections':0, 'accepted':0, 'requests':0, 'reading':0, 'writing':0, 'waiting':0}
         for server in self.servers:
@@ -54,11 +54,5 @@ class NginxStats():
                         writing=stats['writing'],
                         waiting=stats['waiting'])
     
-    def create_graph(self):
+    def graph(self):
         self.rrd.graph()
-        
-    def loop(self):
-        time.sleep(self.TIME_SLEEP)
-        while True:
-            self.update_stats()
-            time.sleep(self.TIME_SLEEP)

@@ -5,18 +5,17 @@ from pyrrd.graph import ColorAttributes, Graph
 import os, logging, time
 
 class RRDController(object):
-    
-    def __init__(self, rrdfile="nginxmonitor.rrd"):
-        self.rrdfile = rrdfile
-        self.graph_request_name = "request.png"
+
+    RRDFILE = "%s/../data/rrd/nginxmonitor.rrd" % os.path.abspath(os.path.dirname(__file__))
+    STATIC_PATH = "%s/../data/static" % os.path.abspath(os.path.dirname(__file__))
     
     def delete(self):
         os.unlink(self.rrdfile)
            
     def create(self):
 
-        if os.path.exists(self.rrdfile):
-            self.rrd = RRD(self.rrdfile)
+        if os.path.exists(self.RRDFILE):
+            self.rrd = RRD(self.RRDFILE)
             return
         
         dss = []
@@ -35,14 +34,14 @@ class RRDController(object):
         rra4 = RRA(cf="AVERAGE", xff=0.5, steps=720, rows=1460)
         rras.extend([rra1, rra2, rra3, rra4])
         
-        self.rrd = RRD(self.rrdfile, step=60, ds=dss, rra=rras)
+        self.rrd = RRD(self.RRDFILE, step=60, ds=dss, rra=rras)
         self.rrd.create(debug=False)
         
     def update(self, connections, requests, reading, writing, waiting):
         self.rrd.bufferValue("%d:%d:%d:%d:%d:%d" % (time.time(),connections, requests, reading, writing, waiting))
         self.rrd.update(template="connections:requests:reading:writing:waiting", debug=True)
      
-    def graph(self):
+    def graph(self, img, period='day'):
         def1 = DEF(rrdfile=self.rrd.filename, vname='request', dsName="requests", cdef="AVERAGE")
         
         vdef1 = VDEF(vname='max', rpn='request,MAXIMUM')
@@ -65,6 +64,6 @@ class RRDController(object):
         ca.font = '#FFFFFF'
         ca.arrow = '#FFFFFF'
         
-        g = Graph(self.graph_request_name, step='-1day', vertical_label='request/sec', color=ca, width=700, height=150)
+        g = Graph(self.STATIC_PATH+img, step='-1'+day, vertical_label='request/sec', color=ca, width=700, height=150)
         g.data.extend([def1, vdef1, vdef2, vdef3, line1, gprint1, gprint2, gprint3])
         g.write()

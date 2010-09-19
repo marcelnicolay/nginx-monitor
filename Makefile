@@ -13,19 +13,19 @@ drop_db:
 	@echo -n $(red)
 	@echo "Dropping database..."
 	@echo -n $(white)
-	@mysql -u root -e 'DROP DATABASE IF EXISTS cartola;'
+	@mysql -u root -e 'DROP DATABASE IF EXISTS nginx_monitor;'
 	@echo -n $(normal)
 
 create_db:
 	@echo "Creating database..."
 	@echo -n $(white)
-	@mysql -u root -e 'CREATE DATABASE IF NOT EXISTS cartola;'
+	@mysql -u root -e 'CREATE DATABASE IF NOT EXISTS nginx_monitor;'
 	@echo -n $(green)
-	@echo 'Database `cartola` created!'
+	@echo 'Database `nginx_monitor` created!'
 	@echo -n $(normal)
 
 migrate_db:
-	@echo "Migrating cartola"
+	@echo "Migrating nginx_monitor"
 	@echo -n $(white)
 	@db-migrate -c migrations/local.conf
 	@echo -n $(green)
@@ -41,3 +41,7 @@ migrate_db_down:
 	@echo -n $(green)
 	@echo "DONE"
 	@echo -n $(normal)
+	
+start:
+	@echo "Running nginx-monitor-server http://localhost:8080..."
+	@cd server && python start.py start

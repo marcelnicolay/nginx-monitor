@@ -1,0 +1,22 @@
+SQL_UP = u"""
+
+CREATE TABLE `site` (
+  `site_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`site_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `server` (
+	`server_id` int(11) NOT NULL AUTO_INCREMENT,
+	`site_id` int(11) DEFAULT NULL,
+	`name` varchar(255) DEFAULT NULL,
+	`url` varchar(255) DEFAULT NULL,
+	PRIMARY KEY (`server_id`),
+	KEY `fk_site` (`site_id`),
+	CONSTRAINT `fk_site` FOREIGN KEY (`site_id`) REFERENCES `site` (`site_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+"""
+
+SQL_DOWN = u"""
+"""
