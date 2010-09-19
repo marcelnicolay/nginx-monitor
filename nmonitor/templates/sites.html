@@ -1,0 +1,14 @@
+<%inherit file="/base.html"/>
+
+<%def name="content()">
+	<h2>sites</h2>
+	% if sites:
+	<ul>
+		% for site in sites:
+		<li><a href='/site/${site.id}'>${site.name}</a></li>
+		% endfor
+	</ul>
+	% else:
+	não existem sites
+	% endif
+</%def>

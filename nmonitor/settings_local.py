@@ -14,7 +14,7 @@ logging.basicConfig(
 )
 logging.getLogger('sqlalchemy').setLevel(logging.ERROR)
 
-ROOT_URLS = 'server.urls'
+ROOT_URLS = 'nmonitor.urls'
 
 # make this unique and secret
 COOKIE_SECRET = "29NbhyfgaA092ZkjMbNvCx06789jdA8iIlLqz7d1D9c8"

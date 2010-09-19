@@ -1,19 +1,23 @@
 <html>
 	<head>
-		<title>API Videlog - Chave de Acesso!</title>
+		<title>Nginx Monitor - Sites</title>
+		<link rel='stylesheet' type='text/css' href='/media/css/base.css'>
 	</head>	
-	<h1>API Videolog - Chave de Acesso</h1>
-	<fieldset>
-		<legend>seu login no videolog</legend>
-		% if erro :
-			<p>${erro}</p>
-		% endif
-		<form method='POST'>
-			usuario <input type='text' name='login'>
-			senha <input type='password' name='senha'>
-			<p>
-				<input type='submit' name='gerar' value='GERAR' />
-			</p>
-		</form>
-	</fieldset>
+	<body>
+		<div id='doc'>
+			<div class='header'>
+				<div class='content'>
+					<h1><a href='/' title='home'>nginx monitor</a></h1>
+				</div>
+			</div>
+			<div class='content'>
+				${self.content()}
+			</div>
+			<div id='footer'>
+				<div class='content'>
+					developed by <a href='http://marcelnicolay.com'>marcelnicolay</a>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

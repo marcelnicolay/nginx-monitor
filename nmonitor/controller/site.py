@@ -9,9 +9,10 @@ from nmonitor.models.site import Site
 import math
 import settings
 
-class HomeController(BaseController):
+class SiteController(BaseController):
     
-    def index(self, **kw):
+    def index(self, site_id, **kw):
         
-        sites = Site().all()
-        return self.render_to_template("sites.html", sites=sites)
+        site = Site().get(int(site_id))
+        
+        return self.render_to_template("site.html", site=site)

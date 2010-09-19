@@ -44,4 +44,4 @@ migrate_db_down:
 	
 start:
 	@echo "Running nginx-monitor-server http://localhost:8080..."
-	@cd server && python start.py start
+	@cd nmonitor && python start.py start

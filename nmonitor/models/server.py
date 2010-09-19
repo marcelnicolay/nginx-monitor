@@ -7,17 +7,16 @@ from torneira.models.base import Model, Repository
 from sqlalchemy import Column, Integer, Float, String, ForeignKey, DateTime
 from sqlalchemy.orm import relation
 from sqlalchemy.orm.exc import NoResultFound
-from nmonitor.models.server import Server
 
-class SiteRepository(Repository):
+class ServerRepository(Repository):
 
-    pass        
+    pass
 	
-class Site(Model, SiteRepository):
+class Server(Model, ServerRepository):
 
-    __tablename__ = 'site'
+    __tablename__ = 'server'
     
-    id = Column('site_id', Integer, primary_key=True)
+    id = Column('server_id', Integer, primary_key=True)
+    site_id = Column('site_id', Integer, ForeignKey('site.site_id'))
     name = Column('name', String)
-    
-    servers = relation(Server, backref="site")
+    url = Column('url', String)

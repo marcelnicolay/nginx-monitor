@@ -1,0 +1,17 @@
+<%inherit file="/base.html"/>
+
+<%def name="content()">
+	<h2>site > ${site.name}</h2>
+	% if site.servers:
+	
+		% for server in site.servers:		
+			<h3>${server.name}</h3>
+			<ul>
+				<li><img src='/media/img/server/${server.id}/request-day.png' /></li>
+			</ul>
+		% endfor
+
+	% else:
+		não existem servidores para esse site
+	% endif
+</%def>

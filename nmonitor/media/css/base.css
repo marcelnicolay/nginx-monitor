@@ -1,0 +1,55 @@
+/* ---- reset 0.3 ---- */
+*{ background:transparent;font-family:inherit; font-size:100%; margin:0; outline:0; padding:0;}
+body{ background:#fff; line-height:1;}
+table{ border-collapse:collapse;border-spacing:0;}
+legend, hr{ display:none;}
+li{ list-style:none;}
+a{ text-decoration:none;}
+caption, th{ text-align:left;}
+caption{display:none;}
+blockquote:before, blockquote:after, q:before, q:after{ content:""; content:none;}
+blockquote, q{ quotes:"" "";}
+abbr, acronym, img, fieldset{ border:0;}
+sup{ vertical-align:text-top;}
+sub{ vertical-align:text-bottom;}
+input, textarea, select{ font-family:inherit;font-size:inherit;font-weight:inherit;}
+/* ---- /reset 0.3 ---- */
+
+
+/* ---- fonts 0.3 ---- */
+body{ font:x-small arial, helvetica, freesans, sans-serif; *font-size:1.25ex;}
+#doc{ font-size:1.2em;}
+select, input, textarea{ font:0.99em arial, helvetica, clean, sans-serif;}
+/* ---- /fonts 0.3 ---- */
+
+#doc{ text-align:center;width:100%}
+.content{ margin:0 auto !important;width:80em;text-align:left}
+
+.header{
+	position:relative;
+	background:#000;
+}
+.header h1{
+	font-size:2em;
+	padding:8px 0px;
+}
+.header h1 a{color:#FFF;}
+
+a{
+	color:#ffa200;
+}
+
+h2{
+	font-size:1.8em;
+	margin:1em 0em;
+}
+
+.content ul li a{
+	display:block;
+}
+
+#footer{
+	margin:20px 0px;
+	padding:10px;
+	border-top:1px solid #000;
+}
