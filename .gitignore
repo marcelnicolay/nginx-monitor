@@ -1,3 +1,5 @@
-data/
+data/*
+nmonitor/media/image/site*
+nmonitor/media/image/server*
 */*.pyc
 *pyc
