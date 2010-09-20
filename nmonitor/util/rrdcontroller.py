@@ -52,9 +52,9 @@ class RRDController(object):
         vdef3 = VDEF(vname='last', rpn='request,LAST')
         
         line1 = LINE(2, defObj=def1, color='#336600', legend='Requests')
-        gprint1 = GPRINT(vdef1, "Max\\: %6.2lf %S")
-        gprint2 = GPRINT(vdef2, "Avg\\: %6.2lf %S")
-        gprint3 = GPRINT(vdef3, "Current\\: %6.2lf %S req/sec")
+        gprint1 = GPRINT(vdef1, "Max\\: %s")
+        gprint2 = GPRINT(vdef2, "Avg\\: %s")
+        gprint3 = GPRINT(vdef3, "Current\\: %s req/sec")
         
         ca = ColorAttributes()
         ca.back = '#333333'
