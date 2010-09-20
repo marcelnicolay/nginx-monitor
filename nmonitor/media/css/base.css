@@ -48,6 +48,42 @@ h2{
 	display:block;
 }
 
+.server-node{
+	border:1px solid #d7d7d7;
+	background:#d7d7d7;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	padding:10px;
+	margin:4px 0;
+}
+.server-node h3{
+	padding:8px;
+	font-size:1.6em;
+	text-align:center;
+}
+.server-node ol{
+	text-align:center;
+}
+.server-node .submenu{
+	height:40px;
+	text-align:center;
+	position:relative;
+}
+.server-node ul{
+	margin:0 auto;
+	padding:8px;
+	position:relative;
+	width:22em;
+}
+.server-node ul li{
+	float:left;
+}
+.server-node ul li a{
+	display:block;
+	padding:10px;
+	font-size:1.5em;
+	font-weight:bold;
+}
 #footer{
 	margin:20px 0px;
 	padding:10px;

@@ -1,14 +1,50 @@
 <%inherit file="/base.html"/>
 
+<%def name="javascript()">
+    ${parent.javascript()}
+    
+	<script type='text/javascript' src='/media/js/servers.node.js'></script>
+	
+	<script>
+		servers = $("div.server-node").serversNode();
+	</script>
+</%def>
+
 <%def name="content()">
 	<h2>site > ${site.name}</h2>
 	% if site.servers:
+		<div class='server-node'>
+			<h3>${site.name}</h3>
+			<ol class='graph'>
+				<li><img src='/media/image/site${site.id}/request-day.png' /></li>
+				<li><img src='/media/image/site${site.id}/connection-day.png' /></li>
+			</ol>
+			<div class='submenu'>
+				<ul>
+					<li><a href='javascript:void(0)' class='navgraph' graph='day'>day</a></li>
+					<li><a href='javascript:void(0)' class='navgraph' graph='week'>week</a></li>
+					<li><a href='javascript:void(0)' class='navgraph' graph='month'>month</a></li>
+					<li><a href='javascript:void(0)' class='navgraph' graph='year'>year</a></li>
+				</ul>
+			</div>
+		</div>
 	
-		% for server in site.servers:		
+		% for server in site.servers:
+		<div class='server-node'>
 			<h3>${server.name}</h3>
-			<ul>
-				<li><img src='/media/img/server/${server.id}/request-day.png' /></li>
-			</ul>
+			<ol class='graph'>
+				<li><img src='/media/image/server_${server.id}/request-day.png' /></li>
+				<li><img src='/media/image/server_${server.id}/connection-day.png' /></li>
+			</ol>
+			<div class='submenu'>
+				<ul>
+					<li><a href='javascript:void(0)' class='navgraph day'>day</a></li>
+					<li><a href='javascript:void(0)' class='navgraph week'>week</a></li>
+					<li><a href='javascript:void(0)' class='navgraph month'>month</a></li>
+					<li><a href='javascript:void(0)' class='navgraph year'>year</a></li>
+				</ul>
+			</div>
+		</div>
 		% endfor
 
 	% else:

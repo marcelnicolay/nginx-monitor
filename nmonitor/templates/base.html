@@ -2,6 +2,11 @@
 	<head>
 		<title>Nginx Monitor - Sites</title>
 		<link rel='stylesheet' type='text/css' href='/media/css/base.css'>
+
+  		<%def name="javascript()">
+			<script type='text/javascript' src='/media/js/jquery-1.3.2.js'></script>
+		</%def>
+
 	</head>	
 	<body>
 		<div id='doc'>
@@ -19,5 +24,8 @@
 				</div>
 			</div>
 		</div>
+		
+		 ${next.javascript()}
+		
 	</body>
 </html>

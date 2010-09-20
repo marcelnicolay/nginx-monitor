@@ -90,8 +90,14 @@ class NginxStats():
         sites = Site().all()
         for site in sites:
             rrd = self.get_rrd(site=site)
-            rrd.graph()
+            rrd.graph(period='day')
+            rrd.graph(period='week')
+            rrd.graph(period='month')
+            rrd.graph(period='year')
 
             for server in site.servers:
                 rrd = self.get_rrd(server=server)
-                rrd.graph()
+                rrd.graph(period='day')
+                rrd.graph(period='week')
+                rrd.graph(period='month')
+                rrd.graph(period='year')
