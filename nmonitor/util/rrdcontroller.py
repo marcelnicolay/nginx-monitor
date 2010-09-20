@@ -51,7 +51,7 @@ class RRDController(object):
         vdef2 = VDEF(vname='avg', rpn='request,AVERAGE')
         vdef3 = VDEF(vname='last', rpn='request,LAST')
         
-        line1 = LINE(1, defObj=def1, color='#336600', legend='Requests')
+        line1 = LINE(2, defObj=def1, color='#336600', legend='Requests')
         gprint1 = GPRINT(vdef1, "Max\\: %5.1lf %S")
         gprint2 = GPRINT(vdef2, "Avg\\: %5.1lf %S")
         gprint3 = GPRINT(vdef3, "Current\\: %5.1lf %Sreq/sec")
@@ -99,7 +99,7 @@ class RRDController(object):
         reading_vdef3 = VDEF(vname='rlast', rpn='reading,LAST')
         reading_vdef4 = VDEF(vname='rmin', rpn='reading,MINIMUM')
 
-        line2 = LINE(2, defObj=def2, color='#0022FF', legend='Reading')
+        line2 = LINE(1, defObj=def2, color='#0022FF', legend='Reading')
         reading_gprint1 = GPRINT(reading_vdef1, "Max\\: %5.1lf %S")
         reading_gprint2 = GPRINT(reading_vdef2, "Avg\\: %5.1lf %S")
         reading_gprint3 = GPRINT(reading_vdef3, "Current\\: %5.1lf %S")
@@ -111,7 +111,7 @@ class RRDController(object):
         writing_vdef3 = VDEF(vname='wlast', rpn='writing,LAST')
         writing_vdef4 = VDEF(vname='wmin', rpn='writing,MINIMUM')
 
-        line3 = LINE(3, defObj=def3, color='#FF0000', legend='Writing')
+        line3 = LINE(1, defObj=def3, color='#FF0000', legend='Writing')
         writing_gprint1 = GPRINT(writing_vdef1, "Max\\: %5.1lf %S")
         writing_gprint2 = GPRINT(writing_vdef2, "Avg\\: %5.1lf %S")
         writing_gprint3 = GPRINT(writing_vdef3, "Current\\: %5.1lf %S")
@@ -123,7 +123,7 @@ class RRDController(object):
         waiting_vdef3 = VDEF(vname='walast', rpn='waiting,LAST')
         waiting_vdef4 = VDEF(vname='wamin', rpn='waiting,MINIMUM')
 
-        line4 = LINE(4, defObj=def4, color='#00AAAA', legend='Waiting')
+        line4 = LINE(1, defObj=def4, color='#00AAAA', legend='Waiting')
         waiting_gprint1 = GPRINT(waiting_vdef1, "Max\\: %5.1lf %S")
         waiting_gprint2 = GPRINT(waiting_vdef2, "Avg\\: %5.1lf %S")
         waiting_gprint3 = GPRINT(waiting_vdef3, "Current\\: %5.1lf %S")
