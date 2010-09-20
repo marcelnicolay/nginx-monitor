@@ -22,8 +22,8 @@ class RRDController(object):
         
         dss = []
         
-        ds1 = DS(dsName="connections", dsType="ABSOLUTE",  heartbeat=120, minval=0, maxval=60000)
-        ds2 = DS(dsName="requests", dsType="COUNTER",  heartbeat=120, minval=0, maxval=100000000)
+        ds1 = DS(dsName="requests", dsType="COUNTER",  heartbeat=120, minval=0, maxval=100000000)
+        ds2 = DS(dsName="connections", dsType="ABSOLUTE",  heartbeat=120, minval=0, maxval=60000)
         ds3 = DS(dsName="reading", dsType="ABSOLUTE",  heartbeat=120, minval=0, maxval=60000)
         ds4 = DS(dsName="writing", dsType="ABSOLUTE",  heartbeat=120, minval=0, maxval=60000)
         ds5 = DS(dsName="waiting", dsType="ABSOLUTE",  heartbeat=120, minval=0, maxval=60000)
@@ -52,9 +52,9 @@ class RRDController(object):
         vdef3 = VDEF(vname='last', rpn='request,LAST')
         
         line1 = LINE(2, defObj=def1, color='#336600', legend='Requests')
-        gprint1 = GPRINT(vdef1, "Max\\: %5.1lf %S")
-        gprint2 = GPRINT(vdef2, "Avg\\: %5.1lf %S")
-        gprint3 = GPRINT(vdef3, "Current\\: %5.1lf %Sreq/sec")
+        gprint1 = GPRINT(vdef1, "Max\\: %6.2lf %S")
+        gprint2 = GPRINT(vdef2, "Avg\\: %6.2lf %S")
+        gprint3 = GPRINT(vdef3, "Current\\: %6.2lf %S req/sec")
         
         ca = ColorAttributes()
         ca.back = '#333333'
