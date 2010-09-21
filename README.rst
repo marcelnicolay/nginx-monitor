@@ -3,6 +3,21 @@ Nginx Monitor
 
 Nginx-monitor is a network graphing solution designed to harness the power of RRDTool_ data storage and the flexibility of Nginx status module. It's a easily and practice solution, written in python, to monitoring Nginx servers in production enviroments.
 
+Quick start
+==========
+
+ 1. Install the dependencies
+ 2. make a clone of this repository
+ 3. make db 'create mysql database'
+ 4. make start 'run server in port 8888'
+ 5. add update script in crontab
+	
+	>>> crontab -e
+	* * * * * python /nginx-monitor/nmonitor/crontab.py update >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
+	0-59/5 * * * * python /nginx-monitor/nmonitor/crontab.py graph >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
+	30 * * * * cp /nginx-monitor/data/* /rrd.backup/
+
+
 Dependencies
 ============
 
@@ -17,20 +32,6 @@ Dependencies
  * PyRRD_
  * simple-db-migrate_
  * MySQL_
-
-Quick start
-==========
-
- 1. Install the dependencies
- 2. make a clone of this repository
- 3. make db 'create mysql database'
- 4. make start 'run server in port 8888'
- 5. add update script in crontab:
-	
-	>>> crontab -e
-	* * * * * python /nginx-monitor/nmonitor/crontab.py update >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
-	0-59/5 * * * * python /nginx-monitor/nmonitor/crontab.py graph >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
-	30 * * * * cp /nginx-monitor/data/* /rrd.backup/
 
 Contributing
 ============
