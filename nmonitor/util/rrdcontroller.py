@@ -51,7 +51,7 @@ class RRDController(object):
         vdef2 = VDEF(vname='avg', rpn='request,AVERAGE')
         vdef3 = VDEF(vname='last', rpn='request,LAST')
         
-        line1 = LINE(2, defObj=def1, color='#336600', legend='Requests')
+        area1 = AREA(defObj=def1, color='#336600', legend='Requests')
         gprint1 = GPRINT(vdef1, "Max\\: %5.1lf %S")
         gprint2 = GPRINT(vdef2, "Avg\\: %5.1lf %S")
         gprint3 = GPRINT(vdef3, "Current\\: %5.1lf %Sreq/sec")
@@ -72,7 +72,7 @@ class RRDController(object):
         start = '-1'+period
         
         g = Graph(imgname, imgformat='PNG', step=start, vertical_label='request/sec', color=ca, width=700, height=150)
-        g.data.extend([def1, vdef1, vdef2, vdef3, line1, gprint1, gprint2, gprint3])
+        g.data.extend([def1, vdef1, vdef2, vdef3, area1, gprint1, gprint2, gprint3])
         g.write()
 
     def graph_connection(self, period='day'):
