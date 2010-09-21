@@ -6,20 +6,20 @@ Nginx-monitor is a network graphing solution designed to harness the power of RR
 Quick start
 ==========
 
- 1. Install the dependencies
- 2. make a clone of this repository
+ Install the dependencies
+ Make a clone of this repository
 
  >>> git clone git@github.com:marcelnicolay/nginx-monitor.git
 
- 3. create mysql database
+ Create mysql database
 
  >>> make db
 
- 4. run server in port 8888
+ Run server in port 8888
 
  >>> make start
 
- 5. add update script in crontab
+ Put script in crontab
 
  >>> crontab -e
  * * * * * python /nginx-monitor/nmonitor/crontab.py update >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
