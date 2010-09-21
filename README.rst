@@ -8,15 +8,19 @@ Quick start
 
  1. Install the dependencies
  2. make a clone of this repository
+
  >>> git clone git@github.com:marcelnicolay/nginx-monitor.git
 
  3. create mysql database
+
  >>> make db
 
  4. run server in port 8888
+
  >>> make start
 
  5. add update script in crontab
+
  >>> crontab -e
  * * * * * python /nginx-monitor/nmonitor/crontab.py update >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
  0-59/5 * * * * python /nginx-monitor/nmonitor/crontab.py graph >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
@@ -57,7 +61,7 @@ With new features
 .. _simplejson: http://code.google.com/p/simplejson/
 .. _simplexml: http://github.com/marcelnicolay/simplexml
 .. _Torneira: http://github.com/marcelnicolay/torneira
-.. _RRDTools: http://oss.oetiker.ch/rrdtool/
+.. _RRDTool: http://oss.oetiker.ch/rrdtool/
 .. _PyRRd: http://code.google.com/p/pyrrd/
 .. _simple-db-migrate: http://github.com/guilhermechapiewski/simple-db-migrate
 .. _mysql: http://www.mysql.com
