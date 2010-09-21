@@ -3,12 +3,20 @@
 <%def name="content()">
 	<h2>sites</h2>
 	% if sites:
-	<ul>
+	<ul class='sites'>
 		% for site in sites:
-		<li><a href='/site/${site.id}'>${site.name}</a></li>
+		<li>
+			<a href='/site/${site.id}'>${site.name}</a>
+			<span><a href='/site/${site.id}/edit'>edit</a></span>
+		</li>
 		% endfor
 	</ul>
 	% else:
 	não existem sites
 	% endif
+	
+	<div class='btn btn-create'>
+		<a href='/site/new'>new site</a>
+	</div>
+	
 </%def>
