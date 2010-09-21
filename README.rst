@@ -25,12 +25,11 @@ Quick start
  2. make a clone of this repository
  3. make db 'create mysql database'
  4. make start 'run server in port 8888'
- 5. add update script in crontab
+ 5. add update script in crontab:
 	
- ..code-block: 
-	* * * * * python /home/esportes4/source/nginx-monitor/nmonitor/crontab.py update >> /home/esportes4/source/nginx-monitor/nmonitor/crontab.out.txt 2>&1
-	0-59/5 * * * * python /home/esportes4/source/nginx-monitor/nmonitor/crontab.py graph >> /home/esportes4/source/nginx-monitor/nmonitor/crontab.out.txt 2>&1
-	30 * * * * cp /home/esportes4/source/nginx-monitor/data/* /home/esportes4/rrd.backup/
+	>>> * * * * * python /nginx-monitor/nmonitor/crontab.py update >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
+	>>> 0-59/5 * * * * python /nginx-monitor/nmonitor/crontab.py graph >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
+	>>> 30 * * * * cp /nginx-monitor/data/* /rrd.backup/
 
 Contributing
 ============
