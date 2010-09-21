@@ -27,9 +27,10 @@ Quick start
  4. make start 'run server in port 8888'
  5. add update script in crontab:
 	
-	>>> * * * * * python /nginx-monitor/nmonitor/crontab.py update >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
-	>>> 0-59/5 * * * * python /nginx-monitor/nmonitor/crontab.py graph >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
-	>>> 30 * * * * cp /nginx-monitor/data/* /rrd.backup/
+	>>> crontab -e
+	* * * * * python /nginx-monitor/nmonitor/crontab.py update >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
+	0-59/5 * * * * python /nginx-monitor/nmonitor/crontab.py graph >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
+	30 * * * * cp /nginx-monitor/data/* /rrd.backup/
 
 Contributing
 ============
