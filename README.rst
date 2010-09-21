@@ -1,7 +1,7 @@
 Nginx Monitor
 ======================
 
-Nginx-monitor is a network graphing solution designed to harness the power of RRDTool's_ data storage and the flexibility of Nginx status module. It's a easily and practice solution, written in python, to monitoring Nginx servers in production enviroments.
+Nginx-monitor is a network graphing solution designed to harness the power of RRDTool_ data storage and the flexibility of Nginx status module. It's a easily and practice solution, written in python, to monitoring Nginx servers in production enviroments.
 
 Dependencies
 ============
@@ -49,7 +49,8 @@ With new features
 .. _nose: http://code.google.com/p/python-nose/
 .. _mox: http://code.google.com/p/pymox/test
 .. _simplejson: http://code.google.com/p/simplejson/
-.. _simplexml: http://github.com/marcelnicolay/torneira
+.. _simplexml: http://github.com/marcelnicolay/simplexml
+.. _Torneira: http://github.com/marcelnicolay/torneira
 .. _RRDTool's: http://oss.oetiker.ch/rrdtool/
 .. _PyRRd: http://code.google.com/p/pyrrd/
 .. _simple-db-migrate: http://github.com/guilhermechapiewski/simple-db-migrate
