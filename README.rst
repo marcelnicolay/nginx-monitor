@@ -29,7 +29,7 @@ Quick start
 Screenshot
 ==============
 
-.. image:: http://github.com/marcelnicolay/nginx-monitor/raw/master/screenshot.png
+.. image:: http://img835.imageshack.us/img835/111/screenshotww.png
    :alt: screenshot
 
 Dependencies
