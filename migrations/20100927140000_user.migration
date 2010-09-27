@@ -7,6 +7,8 @@ CREATE TABLE `user` (
 	PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO user (login,password) values('admin','admin');
+
 """
 
 SQL_DOWN = u"""
