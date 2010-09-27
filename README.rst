@@ -26,6 +26,11 @@ Quick start
  0-59/5 * * * * python /nginx-monitor/nmonitor/crontab.py graph >> /nginx-monitor/nmonitor/crontab.out.txt 2>&1
  30 * * * * cp /nginx-monitor/data/* /rrd.backup/
 
+Screenshot
+==============
+
+.. image:: screenshot.png
+   :alt: screenshot
 
 Dependencies
 ============
