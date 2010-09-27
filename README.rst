@@ -29,7 +29,7 @@ Quick start
 Screenshot
 ==============
 
-.. image:: screenshot.png
+.. image:: ./screenshot.png
    :alt: screenshot
 
 Dependencies
