@@ -128,11 +128,7 @@ ul.sites li span a{
 }
 
 
-form{
-	
-}
-
-form label{
+div.main form label{
 	display:block;
 	width:100%;
 	font-size:1.5em;
@@ -140,13 +136,13 @@ form label{
 	padding:5px;
 	margin:10px 0;
 }
-form input[type='text'],form select{
+div.main form input[type='text'],form select{
 	padding:5px;
 	border:1px solid #000;
 	font-size:2em;
 	width:20em;
 }
-form input[type='submit']{
+div.main form input[type='submit']{
 	font-size:1.8em;
 	background:#ffd78a;
 	border-radius:8px;
@@ -156,7 +152,36 @@ form input[type='submit']{
 	border:transparent;
 	cursor:pointer;
 }
-form input[type='submit']:hover{
+div.main form input[type='submit']:hover{
 	background:#ffa200;
 	color:#000;
+}
+
+
+div.header form#login{
+	float:right;
+	top:0;
+	position:relative;
+	color:#CCC;
+	font-size:0.5em;
+}
+
+div.header form#login input{
+	border-radius:3px;
+	-moz-border-radius:3px;
+	border:transparent;
+	background:#444;
+	width:5em;
+	color:#CCC;
+	padding:0.3em;
+}
+div.header form#login input[type='submit']{
+	width:auto;
+}
+
+div.header span.user{
+	color:#CCC;
+	float:right;
+	font-size:0.5em;
+	padding:0.5em;
 }

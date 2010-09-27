@@ -4,6 +4,7 @@
 from torneira.controller import BaseController, render_to_extension
 from torneira.core.meta import TorneiraSession
 from tornado.web import HTTPError
+from nmonitor.controller import authenticated
 from nmonitor.models.server import Server
 from nmonitor.models.site import Site
 
@@ -12,14 +13,16 @@ import settings
 
 class ServerController(BaseController):
     
-    def index(self, **kw):
+    @authenticated
+    def index(self, user, **kw):
         
         server_id = kw.get("server_id")
         server = Server().get(int(server_id)) if server_id else None
         sites = Site().all()
         
-        return self.render_to_template("new_server.html", server=server, sites=sites)
+        return self.render_to_template("new_server.html", server=server, sites=sites, user=user)
     
+    @authenticated
     def create(self, **kw):
 
         server_id = kw.get("server_id")

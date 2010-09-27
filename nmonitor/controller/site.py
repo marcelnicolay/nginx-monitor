@@ -5,6 +5,7 @@ from torneira.controller import BaseController, render_to_extension
 from torneira.core.meta import TorneiraSession
 from tornado.web import HTTPError
 from nmonitor.models.site import Site
+from nmonitor.controller import authenticated
 
 import math
 import settings
@@ -17,13 +18,15 @@ class SiteController(BaseController):
         
         return self.render_to_template("site.html", site=site)
     
-    def index(self, **kw):
+    @authenticated
+    def index(self, user, **kw):
         
         site_id = kw.get("site_id")
         site = Site().get(int(site_id)) if site_id else None
         
-        return self.render_to_template("new_site.html", site=site)
+        return self.render_to_template("new_site.html", site=site, user=user)
     
+    @authenticated
     def create(self, **kw):
 
         site_id = kw.get("site_id")
