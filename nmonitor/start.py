@@ -21,7 +21,7 @@ def main():
         usage()
         sys.exit(2)
 
-    port = 8080
+    port = 8888
     asDaemon = False
     
     for opt, value in optlists:

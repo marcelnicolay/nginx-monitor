@@ -1,0 +1,54 @@
+<%inherit file="/base.html"/>
+
+<%def name="javascript()">
+    ${parent.javascript()}
+    
+</%def>
+
+<%def name="content()">
+	% if server:
+		<h2>edit server > ${server.name}</h2>
+	% else:
+		<h2>new server</h2>
+	% endif
+	
+	<form method="POST">
+		<fieldset>
+			<legend>server information</legend>
+
+			% if server:
+				<label for='name'>name</label>
+				<input type='text' name='name' value='${server.name}'/>
+
+				<label for='url'>url</label>
+				<input type='text' name='url' value='${server.url}'/>
+			% else:
+				<label for='name'>name</label>
+				<input type='text' name='name' />
+
+				<label for='url'>url</label>
+				<input type='text' name='url' />
+			% endif
+			
+			<label for='site_id'>site</label>
+			<select name='site_id'>
+				% for site in sites:
+					% if server and server.site and server.site.id == site.id:
+						<option value='${site.id}' selected='selected'>${site.name}</option>
+					% else:
+						<option value='${site.id}'>${site.name}</option>
+					% endif
+				% endfor
+			</select>
+		</fieldset>
+		
+		<p>
+			<div class='btn btn-create'>
+				% if server:
+					<input type='submit' name='delete' value='delete'/>
+				% endif
+				<input type='submit' name='save' value='&nbsp;&nbsp;save&nbsp;&nbsp;'/>
+			</div>
+		</p>
+	</form>
+</%def>

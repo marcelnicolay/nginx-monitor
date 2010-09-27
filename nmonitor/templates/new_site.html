@@ -1,0 +1,47 @@
+<%inherit file="/base.html"/>
+
+<%def name="javascript()">
+    ${parent.javascript()}
+    
+</%def>
+
+<%def name="content()">
+	% if site:
+		<h2>edit site > ${site.name}</h2>
+	% else:
+		<h2>new site</h2>
+	% endif
+	
+	<form method="POST">
+		<fieldset>
+			<legend>site information</legend>
+
+			<label for='name'>name</label>
+			
+			% if site:
+				<input type='text' name='name' value='${site.name}'/>
+	
+				% if site.servers:		
+					<label>servers</label>			
+					<ul>
+					% for server in site.servers:
+						<li><a href='/server/${server.id}/edit'>${server.name}</a></li>
+					% endfor
+					</ul>
+				% endif
+			% else:
+				<input type='text' name='name' value=''/>
+			% endif
+		</fieldset>
+		
+		<p>
+			<div class='btn btn-create'>
+				% if site:
+					<a href='/server'>add server</a>
+					<input type='submit' name='delete' value='delete'/>
+				% endif
+				<input type='submit' name='save' value='&nbsp;&nbsp;save&nbsp;&nbsp;'/>
+			</div>
+		</p>
+	</form>
+</%def>

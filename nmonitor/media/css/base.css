@@ -114,7 +114,6 @@ ul.sites li span a{
 	-moz-border-radius:8px;
 	color:#000;
 	padding:10px;
-	
 }
 
 .btn a:hover{
@@ -126,4 +125,38 @@ ul.sites li span a{
 	margin:20px 0px;
 	padding:10px;
 	border-top:1px solid #000;
+}
+
+
+form{
+	
+}
+
+form label{
+	display:block;
+	width:100%;
+	font-size:1.5em;
+	background:#DDD;
+	padding:5px;
+	margin:10px 0;
+}
+form input[type='text'],form select{
+	padding:5px;
+	border:1px solid #000;
+	font-size:2em;
+	width:20em;
+}
+form input[type='submit']{
+	font-size:1.8em;
+	background:#ffd78a;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	color:#000;
+	padding:10px;
+	border:transparent;
+	cursor:pointer;
+}
+form input[type='submit']:hover{
+	background:#ffa200;
+	color:#000;
 }
